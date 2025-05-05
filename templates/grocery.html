@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+    width: 100%;
+    background-color: white; /* White background */
+    padding: 15px 20px;
+    text-align: left; /* Align text to the left */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    color: black; /* Black text */
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+        .container {
+            background-color: #7b68ee;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 60%;
+            max-height: 70vh;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        li {
+            font-size: 18px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        button.quantity-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        input.quantity-input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        button.buy-btn {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.buy-btn:hover {
+            background-color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KitchenIQ</h1>
+    </header>
+
+    <div class="container">
+        <h1>Grocery List</h1>
+        <ul>
+            {% for item in groceries %}
+            <li>
+                <span>{{ item }}</span>
+                <div class="quantity">
+                    <button class="quantity-btn" onclick="decreaseQuantity(this)">−</button>
+                    <input type="number" class="quantity-input" value="1" min="0">
+                    <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <button class="buy-btn" onclick="window.history.back()">Buy</button>
+    </div>
+
+    <script>
+        function increaseQuantity(button) {
+            let input = button.previousElementSibling;
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decreaseQuantity(button) {
+            let input = button.nextElementSibling;
+            if (input.value > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+    </script>
+</body>
+</html>

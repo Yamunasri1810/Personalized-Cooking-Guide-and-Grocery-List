@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchenIQ</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login {
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #7b68ee;
+    color: white;
+}
+
+.input-container {
+    margin: 20px 0;
+}
+
+input#recipe-input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+}
+
+button#generate-btn {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ececec;
+}
+
+button.accept, button.deny {
+    margin: 0 5px;
+}
+</style>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>KitchenIQ</h1>
+            <nav>
+                <a href="{{ url_for('login_submit') }}"><button class="login">Login / Register</button></a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <form action="/recipe" method="post">
+    <section class="hero">
+        <h2>Meet Your Personal AI-Powered Kitchen Assistant</h2>
+        <p>Simply type a Recipe Name and Servings, KitchenIQ will instantly generate an all-new recipe on demand...</p>
+        <div class="input-container">
+            <input type="text" name="dish_name" id = "recipe-input" placeholder="Create a recipe for..." required>
+            <input type="number" name="servings"  id = "recipe-input" placeholder="Servings" required min = 1>
+            <button type="submit" id="generate-btn">Generate</button>
+        </div>
+    </section>
+</form>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

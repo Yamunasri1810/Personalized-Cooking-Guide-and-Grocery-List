@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe for {{ dish_name }}</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Light background */
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        header h1 {
+            color: #000000; /* Black */
+            margin: 0;
+        }
+
+        /* Inner Box */
+        .container {
+            max-width: 700px;
+            background: #7b68ee; /* Medium Slate Blue */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+        }
+
+        h1, h2, p, li {
+            color: white; /* White text */
+        }
+
+        /* List Styling */
+        ul, ol {
+            text-align: left;
+            padding: 10px;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        li {
+            font-size: 16px;
+            padding: 5px 0;
+        }
+
+        /* Form & Button Styling */
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+    background-color: #000000; /* Black */
+    color: #FFFFFF; /* White */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #333333; /* Darker Black on Hover */
+}
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #1B263B;
+            color: white;
+            margin-top: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>KitchenIQ</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Recipe for {{ dish_name }}</h1>
+        <p><strong>Servings:</strong> {{ servings }}</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            {% for ingredient in ingredients %}
+                {% for key, value in ingredient.items() %}
+                    <li><strong>{{ key }}</strong>: {{ value }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+
+
+        <h2>Instructions:</h2>
+        <ol>
+            {% for step in recipe.instructions %}
+                <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+
+        <form action="/grocery" method="post">
+            {% for item in recipe.grocery_list %}
+                <input type="hidden" name="grocery_items" value="{{ item }}">
+            {% endfor %}
+            <button type="submit">Get Grocery List</button>
+        </form>
+    </div>
+
+</body>
+</html>

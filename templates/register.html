@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER</title>
+</head>
+<style>
+    body {
+        background-image: url("background_blue.jpg")
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .social-button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .google-button {
+            background-color: #f44336;
+            color: white;
+        }
+        .apple-button {
+            background-color: #000;
+            color: white;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .continue-email {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        p {
+            margin-top: 20px;
+
+   }
+</style>
+<body>
+    <div class="login-container">
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('register_submit') }}" method="post">
+            <h2>Register</h2>
+            <input type="email" name="user_email" id="email" placeholder="Enter Email" required>
+            <input type="password" name="user_password" id="psw" placeholder="Password" required>
+            <input type="password" name="conform_user_password" id="psw" placeholder="Confirm Password" required>
+            <p>Already have an account? <a href="{{ url_for('login_submit') }}">Login</a></p>
+            <button type="submit" class="continue-email">REGISTER</button>
+        </form>
+    </div>
+</body>
+</html>
