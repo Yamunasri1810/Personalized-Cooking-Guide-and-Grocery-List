@@ -19,13 +19,13 @@ Allowing users to log in and store their activity history.
 🚀 Features
 🔐 User Authentication: Register and log in to save your recipe history.
 
-![Screenshot (255)](https://github.com/user-attachments/assets/87792e7e-e6e6-41b6-b2cf-caf1658fa478)
+![Screenshot (255)](https://github.com/user-attachments/assets/c3d2647c-72d1-4439-acfd-d62f14b1993d)
 
 🍲 Recipe Generation: Fine-tuned GPT-2 model generates recipe instructions and ingredients.
 
-![Screenshot (254)](https://github.com/user-attachments/assets/a3146b91-c5a7-419b-8ebe-74ad93fdfc51)
+![Screenshot (254)](https://github.com/user-attachments/assets/b557156e-5b1b-4fe5-a96e-de1f2bee8bd9)
 
-![Screenshot (253)](https://github.com/user-attachments/assets/f172d589-4f70-44d6-9e0f-71e249c198fd)
+![Screenshot (253)](https://github.com/user-attachments/assets/ead6b910-5a00-46c4-8067-b237d328bab2)
 
 📏 Serving-based Ingredient Scaling: Ingredient quantities auto-adjust based on the number of servings.
 
