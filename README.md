@@ -1,4 +1,4 @@
-# Personalized-Cooking-Guide-and-Grocery-Store
+# Personalized-Cooking-Guide-and-Grocery-List
 
 Personalized Cooking Guide and Grocry Store is a smart, AI-powered web application that allows users to generate personalized recipes and grocery lists by simply entering a dish name and preferred number of servings. The application leverages Natural Language Processing (NLP) and a fine-tuned GPT-2 model to produce dynamic cooking instructions and scaled ingredient lists. It bridges the gap between traditional recipe sources and the real-world usability of scalable, interactive cooking.
 
